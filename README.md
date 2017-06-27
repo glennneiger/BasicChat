@@ -1,5 +1,7 @@
 
-@Me is a simple and lightweight messaging application for iOS, written entirely in the Swift programming language. 
+<img src="https://github.com/dparksports/atmefixed/raw/master/Images/github_banner.png" alt="@Me" title="@Me" />
+
+BasicChat is a simple and lightweight messaging application for iOS, written entirely in the Swift programming language. 
 Developed by me, myself, and I, the only goal for the application is to provide a reliable, open source communication 
 platform to better connect the world. The only dependencies are [Firebase](https://firebase.google.com/) for backend,
 [OneSignal](https://onesignal.com/) to coordinate push notifications, and [Kingfisher](https://github.com/onevcat/Kingfisher) 
