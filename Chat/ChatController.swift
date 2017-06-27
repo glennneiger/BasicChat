@@ -191,7 +191,7 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.storage.reference(forURL: chatMessage.message).getData(maxSize: 25 * 1024 * 1024, completion: { (data, error) -> Void in
                 let image = UIImage(data: data!)
                 chatMessage.image = image!
-                self.messages.append(chatMessage)
+                self.messages.insert(chatMessage, at: 0)
                 self.tableView.reloadData()
                 self.scrollToBottom()
             })
@@ -204,13 +204,13 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
             let manager = PHImageManager.default()
             manager.requestImage(for: asset, targetSize: CGSize(width: 100.0, height: 100.0), contentMode: .aspectFit, options: nil, resultHandler: {(result, info)->Void in
                 chatMessage.image = result!
-                self.messages.append(chatMessage)
+                self.messages.insert(chatMessage, at: 0)
                 self.tableView.reloadData()
                 self.scrollToBottom()
             })
             // Handle regular messages
         } else {
-            self.messages.append(chatMessage)
+            self.messages.insert(chatMessage, at: 0)
             self.tableView.reloadData()
             self.scrollToBottom()
         }
