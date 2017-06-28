@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hDn-Rt-YnN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A291j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hDn-Rt-YnN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,10 +45,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwo-0P-uWX">
-                                <rect key="frame" x="16" y="66" width="343" height="30"/>
-                                <state key="normal" title="Send Message"/>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qo8-Fn-LJC">
+                                <rect key="frame" x="0.0" y="66" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="refresh" id="CzR-xt-S7c">
+                                        <connections>
+                                            <action selector="reloadWithSender:" destination="hDn-Rt-YnN" id="r3b-6L-9JG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="hIG-QZ-gHc"/>
+                                    <barButtonItem title="Send Message" id="Yhn-t6-lja">
+                                        <connections>
+                                            <action selector="sendMessageWithSender:" destination="hDn-Rt-YnN" id="1uE-Og-QyE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="42J-A9-fCa">
                                 <rect key="frame" x="0.0" y="110" width="375" height="557"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,28 +99,27 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="qo8-Fn-LJC" firstAttribute="top" secondItem="5JJ-ah-iMQ" secondAttribute="bottom" constant="8" id="1Ng-vF-oZF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="42J-A9-fCa" secondAttribute="trailing" constant="-16" id="1Qf-iM-4bU"/>
                             <constraint firstItem="42J-A9-fCa" firstAttribute="leading" secondItem="LFW-Qt-CNG" secondAttribute="leadingMargin" constant="-16" id="A79-0Z-cfO"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Jwo-0P-uWX" secondAttribute="leading" id="JMk-9v-SVy"/>
-                            <constraint firstItem="42J-A9-fCa" firstAttribute="top" secondItem="Jwo-0P-uWX" secondAttribute="bottom" constant="14" id="Mss-gh-22U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qo8-Fn-LJC" secondAttribute="trailing" constant="-16" id="Shi-z2-BEE"/>
+                            <constraint firstItem="qo8-Fn-LJC" firstAttribute="leading" secondItem="LFW-Qt-CNG" secondAttribute="leadingMargin" constant="-16" id="UEq-lo-Mp0"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5JJ-ah-iMQ" secondAttribute="leading" id="YO7-dU-3jE"/>
-                            <constraint firstItem="Jwo-0P-uWX" firstAttribute="top" secondItem="5JJ-ah-iMQ" secondAttribute="bottom" constant="8" id="akd-B1-FFC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Jwo-0P-uWX" secondAttribute="trailing" id="eVp-0f-cQ9"/>
                             <constraint firstItem="5JJ-ah-iMQ" firstAttribute="top" secondItem="F18-wT-Z09" secondAttribute="bottom" constant="8" id="jAZ-t7-KxF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5JJ-ah-iMQ" secondAttribute="trailing" id="nHF-VU-MJ7"/>
                             <constraint firstItem="QIm-QD-Nme" firstAttribute="top" secondItem="42J-A9-fCa" secondAttribute="bottom" id="rZJ-7J-seU"/>
+                            <constraint firstItem="42J-A9-fCa" firstAttribute="top" secondItem="qo8-Fn-LJC" secondAttribute="bottom" id="yqr-mY-iS6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="M3p-A6-BtE"/>
                     <connections>
                         <outlet property="messageTextField" destination="5JJ-ah-iMQ" id="p4j-4l-AAg"/>
-                        <outlet property="sendButton" destination="Jwo-0P-uWX" id="Los-gu-zpf"/>
                         <outlet property="tableView" destination="42J-A9-fCa" id="1kX-f1-LGo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZF-Yk-YCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="634" y="-23"/>
+            <point key="canvasLocation" x="632.79999999999995" y="-23.838080959520241"/>
         </scene>
     </scenes>
 </document>

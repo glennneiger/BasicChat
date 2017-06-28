@@ -17,7 +17,6 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Outlets
     @IBOutlet weak var messageTextField: UITextField!
-    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     // Useful app properties
@@ -42,11 +41,6 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.camera,
                                                            target: self,
                                                            action: #selector(selectImage))
-        
-        // Initialize send button
-        sendButton.addTarget(self,
-                             action: #selector(sendMessage),
-                             for: .touchUpInside)
         
         // Initialize UIImagePicker
         imagePicker.delegate = self
@@ -94,9 +88,12 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidAppear(animated)
         self.addObservers()
     }
+
+    @IBAction func reload(sender: AnyObject) {
+    }
     
     // Send a chat message
-    func sendMessage(sender: AnyObject) {
+    @IBAction func sendMessage(sender: AnyObject) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .medium
@@ -199,7 +196,7 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
                 chatMessage.image = image!
                 self.messages.insert(chatMessage, at: 0)
                 self.tableView.reloadData()
-                self.scrollToBottom()
+//                self.scrollToBottom()
             })
             // Handle asset library messages
         } else if (chatMessage.message.contains("assets-library://")) {
@@ -212,13 +209,13 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
                 chatMessage.image = result!
                 self.messages.insert(chatMessage, at: 0)
                 self.tableView.reloadData()
-                self.scrollToBottom()
+//                self.scrollToBottom()
             })
             // Handle regular messages
         } else {
             self.messages.insert(chatMessage, at: 0)
             self.tableView.reloadData()
-            self.scrollToBottom()
+//            self.scrollToBottom()
         }
     }
     
