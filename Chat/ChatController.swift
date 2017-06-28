@@ -238,8 +238,8 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RightDetailCellID", for: indexPath)
         let chatMessage = messages[indexPath.row]
-        cell.textLabel?.text = chatMessage.name
-        cell.detailTextLabel?.text = chatMessage.message
+        cell.textLabel?.text = chatMessage.message
+        cell.detailTextLabel?.text = chatMessage.name
         cell.imageView?.image = chatMessage.image
         return cell
     }
