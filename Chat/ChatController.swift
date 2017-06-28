@@ -70,11 +70,11 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if let displayName = user?.displayName {
                     self.username = displayName
                 } else {
-                    self.username = "iOS nil"
+                    self.username = "none"
                 }
                 self.navigationItem.rightBarButtonItem?.title = "Log out"
             } else {
-                self.username = "iOS"
+                self.username = "na"
                 self.navigationItem.rightBarButtonItem?.title = "Log in"
             }
         }
@@ -97,6 +97,12 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Send a chat message
     func sendMessage(sender: AnyObject) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .medium
+        let timestamp = dateFormatter.string(from: Date())
+        self.username = timestamp
+        
         let chatMessage = ChatMessage(name: self.username, message: messageTextField.text!, image: nil)
         messageTextField.text = ""
         
