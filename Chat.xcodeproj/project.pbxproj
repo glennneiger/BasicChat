@@ -32,6 +32,7 @@
 		C37F051387BF642DAB7809A8 /* Pods_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D000EF251F11E3C500723C2A /* PushNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushNotification.h; sourceTree = "<group>"; };
 		D000EF261F11E3C800723C2A /* PushNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushNotification.m; sourceTree = "<group>"; };
+		D000EF2A1F11ED0D00723C2A /* Chat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chat.entitlements; sourceTree = "<group>"; };
 		D04FD7711F116AB4002160A2 /* Chat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chat-Bridging-Header.h"; sourceTree = "<group>"; };
 		D160E588DA6EC5B6B89117AD /* Pods-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +79,7 @@
 		A7B079AF1F021D62009ADFF5 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				D000EF2A1F11ED0D00723C2A /* Chat.entitlements */,
 				D000EF251F11E3C500723C2A /* PushNotification.h */,
 				D000EF261F11E3C800723C2A /* PushNotification.m */,
 				A7B079C41F021DAE009ADFF5 /* GoogleService-Info.plist */,
@@ -138,6 +140,14 @@
 						DevelopmentTeam = 65PMYRRX45;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -366,6 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Chat/Chat.entitlements;
 				DEVELOPMENT_TEAM = 65PMYRRX45;
 				INFOPLIST_FILE = Chat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -385,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Chat/Chat.entitlements;
 				DEVELOPMENT_TEAM = 65PMYRRX45;
 				INFOPLIST_FILE = Chat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
