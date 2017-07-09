@@ -94,10 +94,7 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Send a chat message
     @IBAction func sendMessage(sender: AnyObject) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .medium
-        let timestamp = dateFormatter.string(from: Date())
+        let timestamp = PushNotification.timestampString()
         self.username = timestamp
         
         let chatMessage = ChatMessage(name: self.username, message: messageTextField.text!, image: nil)
@@ -106,8 +103,14 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Create a reference to our chat message
         let chatRef = database?.reference().child("chat")
         
+        let token = Messaging.messaging().fcmToken
+        print("FCM token: \(token ?? "")")
+        
+        let dictionary = ["st": chatMessage.name,
+                          "uv": token,
+                          "w": chatMessage.message];
         // Push the chat message to the database
-        chatRef?.childByAutoId().setValue(["name": chatMessage.name, "message": chatMessage.message])
+        chatRef?.childByAutoId().setValue(dictionary)
     }
     
     // Show a popup when the user asks to sign in
