@@ -23,6 +23,7 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
     let imagePicker = UIImagePickerController()
     var messages: [ChatMessage]!
     var username: String? = nil
+    var pushNotification = PushNotification.sharedInstance()
     
     // Firebase services
     var database: Database? = nil
@@ -93,6 +94,16 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // Send a chat message
+    @IBAction func notify(sender: AnyObject) {
+        let timestamp = PushNotification.timestampString()
+//        let token = Messaging.messaging().fcmToken
+        let token = PushNotification.registeredToken()
+        print("token: \(token ?? "")")
+        
+//        PushNotification.notify(toToken: token, withMessage: timestamp)
+        PushNotification.sendNotificatino("1008")
+    }
+    
     @IBAction func sendMessage(sender: AnyObject) {
         let timestamp = PushNotification.timestampString()
         self.username = timestamp
@@ -106,9 +117,10 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
         let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
         
-        let dictionary = ["st": chatMessage.name,
-                          "uv": token,
-                          "w": chatMessage.message];
+        let dictionary = ["name": chatMessage.name,
+                          "t": token,
+                          "timestamp": timestamp,
+                          "message": chatMessage.message];
         // Push the chat message to the database
         chatRef?.childByAutoId().setValue(dictionary)
     }
