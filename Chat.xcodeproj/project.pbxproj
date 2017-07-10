@@ -79,10 +79,10 @@
 		A7B079AF1F021D62009ADFF5 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				A7B079C41F021DAE009ADFF5 /* GoogleService-Info.plist */,
 				D000EF2A1F11ED0D00723C2A /* Chat.entitlements */,
 				D000EF251F11E3C500723C2A /* PushNotification.h */,
 				D000EF261F11E3C800723C2A /* PushNotification.m */,
-				A7B079C41F021DAE009ADFF5 /* GoogleService-Info.plist */,
 				A7B079C21F021D96009ADFF5 /* ChatController.swift */,
 				A7B079B01F021D62009ADFF5 /* AppDelegate.swift */,
 				A7B079B21F021D62009ADFF5 /* ViewController.swift */,
