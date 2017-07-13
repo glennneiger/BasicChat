@@ -21,4 +21,6 @@ pod 'Firebase/Analytics'
 #pod 'Firebase/Invites'
 
 target 'Chat' do
+    pod 'JSQMessagesViewController'
+    pod 'JSQSystemSoundPlayer'
 end
