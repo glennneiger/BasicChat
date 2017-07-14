@@ -96,12 +96,16 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Send a chat message
     @IBAction func notify(sender: AnyObject) {
         let timestamp = PushNotification.timestampString()
-//        let token = Messaging.messaging().fcmToken
+        self.notify(message: timestamp!)
+    }
+    
+    func notify(message:String) {
+        //        let token = Messaging.messaging().fcmToken
         let token = PushNotification.registeredToken()
         print("token: \(token ?? "")")
         
-//        PushNotification.notify(toToken: token, withMessage: timestamp)
-        PushNotification.sendNotificatino("1008")
+        PushNotification.notify(toToken: token, withMessage: message)
+        //        PushNotification.sendNotificatino("1008")
     }
     
     @IBAction func sendMessage(sender: AnyObject) {
@@ -123,6 +127,7 @@ class ChatController: UIViewController, UITableViewDataSource, UITableViewDelega
                           "message": chatMessage.message];
         // Push the chat message to the database
         chatRef?.childByAutoId().setValue(dictionary)
+        self.notify(message: chatMessage.message)
     }
     
     // Show a popup when the user asks to sign in
