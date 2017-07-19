@@ -15,8 +15,7 @@
 		A7B079C31F021D96009ADFF5 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B079C21F021D96009ADFF5 /* ChatController.swift */; };
 		A7B079C51F021DAE009ADFF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7B079C41F021DAE009ADFF5 /* GoogleService-Info.plist */; };
 		D000EF291F11E4B400723C2A /* PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = D000EF261F11E3C800723C2A /* PushNotification.m */; };
-		D05503301F15895500142FC1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055032E1F15895500142FC1 /* Message.swift */; };
-		D05503311F15895500142FC1 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055032F1F15895500142FC1 /* MessagesViewController.swift */; };
+		D0872DE41F1EFB10007F2D25 /* PushByFCM.m in Sources */ = {isa = PBXBuildFile; fileRef = D0872DE31F1EFB10007F2D25 /* PushByFCM.m */; };
 		F2931C63B0108048638980BA /* Pods_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37F051387BF642DAB7809A8 /* Pods_Chat.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,11 +34,15 @@
 		D000EF251F11E3C500723C2A /* PushNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushNotification.h; sourceTree = "<group>"; };
 		D000EF261F11E3C800723C2A /* PushNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushNotification.m; sourceTree = "<group>"; };
 		D000EF2A1F11ED0D00723C2A /* Chat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chat.entitlements; sourceTree = "<group>"; };
-		D04F587B1F15C2E3009EAE23 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQSystemSoundPlayer.framework; path = "../../../Library/Developer/Xcode/DerivedData/Chat-fadvcxecbyugftbtslvhuqszqqax/Build/Products/Debug-iphoneos/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework"; sourceTree = "<group>"; };
-		D04F587C1F15C2E3009EAE23 /* JSQMessagesViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQMessagesViewController.framework; path = "../../../Library/Developer/Xcode/DerivedData/Chat-fadvcxecbyugftbtslvhuqszqqax/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework"; sourceTree = "<group>"; };
 		D04FD7711F116AB4002160A2 /* Chat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chat-Bridging-Header.h"; sourceTree = "<group>"; };
 		D055032E1F15895500142FC1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D055032F1F15895500142FC1 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		D0872DE21F1EFB10007F2D25 /* PushByFCM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushByFCM.h; sourceTree = "<group>"; };
+		D0872DE31F1EFB10007F2D25 /* PushByFCM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushByFCM.m; sourceTree = "<group>"; };
+		D0872DEB1F1F0751007F2D25 /* AppDelegate+FCM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+FCM.h"; sourceTree = "<group>"; };
+		D0872DEC1F1F0751007F2D25 /* AppDelegate+FCM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+FCM.m"; sourceTree = "<group>"; };
+		D0872DEE1F1F1B9F007F2D25 /* JSQMessagesViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSQMessagesViewController.framework; sourceTree = "<group>"; };
+		D0872DEF1F1F1B9F007F2D25 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSQSystemSoundPlayer.framework; sourceTree = "<group>"; };
 		D160E588DA6EC5B6B89117AD /* Pods-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +90,10 @@
 		A7B079AF1F021D62009ADFF5 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				D0872DEB1F1F0751007F2D25 /* AppDelegate+FCM.h */,
+				D0872DEC1F1F0751007F2D25 /* AppDelegate+FCM.m */,
+				D0872DE21F1EFB10007F2D25 /* PushByFCM.h */,
+				D0872DE31F1EFB10007F2D25 /* PushByFCM.m */,
 				A7B079C41F021DAE009ADFF5 /* GoogleService-Info.plist */,
 				D000EF2A1F11ED0D00723C2A /* Chat.entitlements */,
 				D000EF251F11E3C500723C2A /* PushNotification.h */,
@@ -106,8 +113,8 @@
 		DA8FDEC56F27D6317979E273 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D04F587C1F15C2E3009EAE23 /* JSQMessagesViewController.framework */,
-				D04F587B1F15C2E3009EAE23 /* JSQSystemSoundPlayer.framework */,
+				D0872DEE1F1F1B9F007F2D25 /* JSQMessagesViewController.framework */,
+				D0872DEF1F1F1B9F007F2D25 /* JSQSystemSoundPlayer.framework */,
 				C37F051387BF642DAB7809A8 /* Pods_Chat.framework */,
 			);
 			name = Frameworks;
@@ -256,10 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D05503311F15895500142FC1 /* MessagesViewController.swift in Sources */,
 				D000EF291F11E4B400723C2A /* PushNotification.m in Sources */,
+				D0872DE41F1EFB10007F2D25 /* PushByFCM.m in Sources */,
 				A7B079B31F021D62009ADFF5 /* ViewController.swift in Sources */,
-				D05503301F15895500142FC1 /* Message.swift in Sources */,
 				A7B079B11F021D62009ADFF5 /* AppDelegate.swift in Sources */,
 				A7B079C31F021D96009ADFF5 /* ChatController.swift in Sources */,
 			);
